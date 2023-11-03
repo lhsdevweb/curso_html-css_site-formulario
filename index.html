@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 16</title>
+    <style>
+        body {background-color: lightgray; padding-left: 20px;}
+        h1 {text-align: center;} hr {height: 2px;}
+        legend {font-weight: bolder; font-size: large;}
+        form {background-color: white; padding: 20px; box-shadow: 2px 4px 3px gray;
+                display: inline-block; padding: 10px; margin: 10px;}
+        #Form1 {width: 350px;} #Form3 {width: 250px;} 
+        section {margin: auto;} 
+        #Section1 {width: 700px;} #Section2 {width: 950px;} #Section3 {width: 500px}
+    </style>
+</head>
+<body>
+    <h1>Página de Formulário</h1>    
+    <section id="Section1">
+        <form id="Form1" action="cadastro.php" method="post" autocomplete="off">
+            <fieldset>
+                <legend>Dados pessoais: </legend>
+                <p>
+                    <label for="ifoto">Foto do perfil: </label>
+                    <input type="file" name="foto" id="ifoto">
+                    <!-- este controle só funciona com o método 'post' -->
+                </p>
+                <p>
+                    <label for="inome">Nome:</label>
+                    <input type="text" name="nome" id="inome">
+                </p>
+                <p>
+                    <label for="isobrenome">Sobrenome:</label>
+                    <input type="text" name="sobrenome" id="isobrenome">
+                </p>
+                <p>
+                    Sexo: <br>
+                    <input type="radio" name="sexo" id="M" checked><label for="M"> Masculino
+                        </label><br>
+                    <input type="radio" name="sexo" id="F"><label for="F"> Feminino</label>
+                </p>
+                <p>
+                    <label for="iemail">Email:</label>
+                    <input type="email" name="email" id="iemail" autocomplete="email" required>
+                </p>
+                <p>
+                    <label for="ifone">Telefone:</label>
+                    <input type="tel" name="fone" id="ifone" autocomplete="tel" required
+                     pattern="^\(\d{2}\) \d{4,5}-\d{4}$" placeholder="(xx) xxxxx-xxxx">
+                </p>
+                <p>
+                    <label for="iestado">Estado: </label>
+                    <select name="estado" id="iestado">
+                        <option value="" selected>---- Escolha ----</option>
+                        <optgroup label="Região Sudeste">
+                            <option value="SP">São Paulo</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="MG">Minas Gerais</option>
+                        </optgroup>
+                        <optgroup></optgroup>
+                        <optgroup label="Região Nordeste">
+                            <option value="BH">Bahia</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="JP">João Pessoa</option>
+                        </optgroup>
+                    </select>
+                </p>
+                <p>
+                    <label for="iprof">Profissão: </label>
+                    <input type="text" name="prof" id="iprof" list="lista">
+                    <datalist id="lista">
+                        <option>Engenheiro</option>
+                        <option>Atleta</option>
+                        <option>Piloto</option>
+                        <option>Médico</option>
+                        <option>Advogado</option>
+                    </datalist>
+                </p>
+            </fieldset>
+            <P><input type="submit" value="Enviar"></P>
+        </form>
+        
+        <form id="Form3" action="cadastro.php" method="get" autocomplete="on">
+            <fieldset>
+                <legend>Dados do Curso: </legend>
+                <p>
+                    <label for="inome">Nome:</label>
+                    <input type="text" name="nome" id="inome" required autocomplete="name"
+                        minlength="5" maxlength="20" size="15" placeholder="nome completo">
+                </p>
+                <p>
+                    <label for="imedia">Média:</label>
+                    <input type="number" name="media" id="imedia" required
+                        min="0" max="10" placeholder="0 a 10" step="0.5">
+                </p>
+                <p>
+                    <label for="imes">Período Letivo:</label>
+                    <input type="month" name="mes" id="imes" value="2023-08">
+                </p>
+                <p>
+                    <label for="idata">Data da Prova:</label>
+                    <input type="date" name="data" id="idata">
+                </p>
+                <p>
+                    <label for="ihora">Horário da Prova:</label>
+                    <input type="time" name="hora" id="ihora">
+                </p>
+                <p>
+                    <label for="inivel">Nível de Satisfação: </label>
+                    <input type="range" name="nivel" id="inivel" min="1" max="5" value="2">
+                </p>
+                <p>
+                    <label for="ix">Número: </label>
+                    <input type="range" name="x" id="ix" min="0" max="10" value="5"
+                        oninput="ivalor.innerHTML = Number(ix.value)">
+                    <output id="ivalor">5</output>
+                </p>
+            </fieldset>
+            <p>
+                <input type="submit" value="Enviar">
+            </p>
+        </form>
+    </section>   
+    <hr>
+    <section id="Section2">
+        <form action="cadastro.php" method="post" autocomplete="on">
+            <fieldset>
+                <legend>Tela de login: </legend>
+                <p>
+                    <label for="iusuario">Usuário: </label>
+                    <input type="text" name="usuario" id="iusuario" required
+                        minlength="5" maxlength="15" size="12" placeholder="max15caracteres"
+                        autocomplete="username">
+                <!-- minlength/maxlength: quantidade de caracteres
+                        size: tamanho do campo (apenas a parte visível)
+                        required: campo obrigatório -->
+                </p>
+                <p>
+                    <label for="isenha">Senha: </label>
+                    <input type="password" name="senha" id="isenha" required
+                        minlength="5" maxlength="12" size="8" placeholder="mínimo de 5"
+                        autocomplete="current-password">
+                </p>
+            </fieldset>
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </p>
+        </form>
+
+        <form action="cadastro.php" method="get" autocomplete="on">
+            <fieldset>
+                <legend>Esportes favoritos: </legend>
+                <input type="checkbox" name="futebol" id="ifutebol">
+                <label for="ifutebol"> Futebol</label><br><br>
+                <input type="checkbox" name="natacao" id="inatacao">
+                <label for="inatacao"> Natação</label><br><br>
+                <input type="checkbox" name="volei" id="ivolei" checked>
+                <label for="ivolei"> Vôlei</label><br><br>
+                <input type="checkbox" name="basquete" id="ibasquete">
+                <label for="ibasquete"> Basquete</label>                
+            </fieldset>
+            <p>
+                <input type="submit" value="Enviar">
+            </p>
+        </form>
+
+        <form action="cadastro.php" method="get" autocomplete="on">
+            <fieldset>
+                <p>
+                    <label for="icor">Cor: </label>
+                    <input type="color" name="cor" id="icor" value="#f64c13">
+                </p>
+            </fieldset>
+            <p>
+                <input type="submit" value="Enviar">
+            </p>
+        </form>
+
+        <form action="cadastro.php" method="post">
+            <p>
+                <label for="imsg">Mensagem: </label><br>
+                <textarea name="msg" id="imsg" cols="30" rows="10"></textarea>
+                <!-- este controle só funciona com o método 'post' -->
+            </p>
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </p>
+        </form>
+    </section>
+    <hr>
+    <section id="Section3">
+        <form action="cadastro.php" method="get" autocomplete="on">
+            <fieldset>
+                <legend>X + Y = total</legend>
+                <p>
+                    <label for="ix">Número X: </label>
+                    <input type="number" name="x" id="ix" min="0" max="50" required 
+                        oninput="isoma.innerHTML = Number(ix.value) + Number(iy.value)">
+                </p>
+                <p>
+                    <label for="iy">Número Y: </label>
+                    <input type="number" name="y" id="iy" min="0" max="50" required
+                        oninput="isoma.innerHTML = Number(ix.value) + Number(iy.value)">
+                </p>
+                <p>
+                    <label for="isoma">Total: </label>
+                    <output name="soma" id="isoma">0</output>
+                </p>
+            </fieldset>
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </p>
+        </form>
+
+        <form action="cadastro.php" method="get" autocomplete="on">
+            <fieldset>
+                <legend>Quantos anos você tem?</legend>
+                <p>
+                    <label for="iano">Ano que nasceu: </label>
+                    <input type="number" name="ano" id="iano" min="1900" max="2010"
+                        oninput="calcIdade()">
+                </p>
+                <p>
+                    <label for="iidade">Idade: </label>
+                    <output name="idade" id="iidade">0</output>
+                </p>
+            </fieldset>
+            <p>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </p>
+        </form>
+        <script>
+            function calcIdade() {let atual = new Date().getFullYear()
+                        iidade.innerHTML = Number(atual) - Number(iano.value)}
+        </script>
+    </section>
+</body>
+</html>
