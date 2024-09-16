@@ -4,22 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio 16</title>
+    <title>Formulário</title>
     <style>
-        body {background-color: lightgray; padding-left: 20px;}
+        body {background-color: lightgray; margin: 0;}
         h1 {text-align: center;} hr {height: 2px;}
-        legend {font-weight: bolder; font-size: large;}
+
+        section {margin: auto; display: flex; flex-wrap: wrap; justify-content: center;} 
+        #Section1 {width: 700px;} #Section2 {width: 950px;} #Section3 {width: 500px}
+
         form {background-color: white; padding: 20px; box-shadow: 2px 4px 3px gray;
                 display: inline-block; padding: 10px; margin: 10px;}
-        #Form1 {width: 350px;} #Form3 {width: 250px;} 
-        section {margin: auto;} 
-        #Section1 {width: 700px;} #Section2 {width: 950px;} #Section3 {width: 500px}
+        #form1 {width: 350px;} #form2 {width: 250px;} 
+        legend {font-weight: bolder; font-size: large;}
+
+        footer {background-color: black; color: white; margin-top: 20px; 
+                text-align: center; padding: 20px;}
+        footer div {display: inline;}
+        #rodape1 {display: block;} #rodape2 {display: none;}
+        a {color: yellow; text-decoration: none;}
+        a:hover {text-decoration: underline;}
+
+        @media (max-width: 950px) {
+            #Section2 {width: 600px;}  
+        }
+        @media (max-width: 700px) {
+            #Section1 {width: 600px;}
+        }
+        @media (max-width: 600px) {
+            #Section1, #Section2, #Section3 {width: 480px;}  
+            #rodape1 {display: none;} #rodape2 {display: block;}
+        }
+        @media (max-width: 450px) {
+            section {display: flex; flex-direction: column; align-content: center; margin: auto;}
+        }
     </style>
 </head>
 <body>
     <h1>Página de Formulário</h1>    
     <section id="Section1">
-        <form id="Form1" action="cadastro.php" method="post" autocomplete="off">
+        <form id="form1" action="cadastro.php" method="post" autocomplete="off">
             <fieldset>
                 <legend>Dados pessoais: </legend>
                 <p>
@@ -82,7 +105,7 @@
             <P><input type="submit" value="Enviar"></P>
         </form>
         
-        <form id="Form3" action="cadastro.php" method="get" autocomplete="on">
+        <form id="form2" action="cadastro.php" method="get" autocomplete="on">
             <fieldset>
                 <legend>Dados do Curso: </legend>
                 <p>
@@ -240,5 +263,40 @@
                         iidade.innerHTML = Number(atual) - Number(iano.value)}
         </script>
     </section>
+    <footer>
+        <div id="rodape1">
+            &copy;2023 Desenvolvido por LHS DevWeb. Todos os direitos reservados.
+            <p>
+                <div>Curso Online pelo </div>
+                <a href="https://www.cursoemvideo.com/" target="_blank">Curso em Video</a>
+                <div> - Curso de </div>
+                <a href="https://www.youtube.com/watch?v=Ejkb_YpuHWs&list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n" target="_blank">
+                    HTML5 e CSS3
+                </a>
+                <div>com o professor </div>
+                <a href="https://github.com/gustavoguanabara/html-css/tree/master" target="_blank">
+                    Gustavo Guanabara
+                </a>
+            </p>
+        </div>
+        <div id="rodape2">
+            <p>&copy;2023 Desenvolvido por LHS DevWeb.</p>
+            <p>Todos os direitos reservados.</p>
+            <p>
+                <div>Curso Online pelo </div>
+                <a href="https://www.cursoemvideo.com/" target="_blank">Curso em Video</a>
+                <div> - Curso de </div>
+                <a href="https://www.youtube.com/watch?v=Ejkb_YpuHWs&list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n" target="_blank">
+                    HTML5 e CSS3
+                </a>
+            </p>
+            <p>
+                <div>com o professor </div>
+                <a href="https://github.com/gustavoguanabara/html-css/tree/master" target="_blank">
+                    Gustavo Guanabara
+                </a>
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
