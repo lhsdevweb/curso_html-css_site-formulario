@@ -34,7 +34,6 @@ a:hover {text-decoration: underline;}
 }
 @media (max-width: 500px) {
     section {flex-direction: column; align-items: center;} 
-    #form1 {background-color: aqua;} 
     #paragrafo1 {display: block; text-align: center;}
     #paragrafo1 .espaço {display: none;}
     #paragrafo3 {display: none;}
