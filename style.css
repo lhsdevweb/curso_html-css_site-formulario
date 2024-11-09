@@ -43,5 +43,5 @@ a:hover {text-decoration: underline;}
 @media (max-width: 400px) {
     h1 {font-size: x-large; margin-top: 20px;}
     #Section1, #Section2, #Section3 {width: 300px;}  
-    #form1 {width: 290px; padding: 5px; margin: 0;}
+    #form1 {width: 295px; padding: 5px; margin: 0;}
 }
