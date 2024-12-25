@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+body {background-color: lightgray; margin: 0; padding: 0;}
+
+h1 {text-align: center; margin: 40px 0 20px 0;} hr {height: 2px;}
+
+section {display: flex; flex-wrap: wrap; justify-content: center;} 
+form {margin: 20px 10px; padding: 10px; width: fit-content; background-color: white;}
+legend {font-weight: bolder; font-size: large;}
+#aviso {display: none;}
+
+footer {background-color: black; color: white; text-align: center; 
+        padding: 20px 0 40px 0; margin-top: 20px;}
+footer div {display: flex; justify-content: center;}
+#paragrafo1, #paragrafo2 {height: 30px;}
+#paragrafo3 {display: none;}
+#paragrafo4 {display: none;}
+
+a {color: yellow; text-decoration: none;}
+a:hover {text-decoration: underline;}
+
+@media (min-width: 902px) and (min-height: 1360px) {
+    body {display: flex; flex-direction: column; height: 100vh;}
+    main {height: 100%;}
+}
+@media (max-width: 720px) {
+    #paragrafo2 {display: none;}
+    #paragrafo3 {display: block;}
+    #paragrafo3 div {display: flex; justify-content: center; height: 30px;}
+}
+@media (max-width: 500px) {
+    #paragrafo1 {display: block; text-align: center;}
+    #paragrafo1 .espaço {display: none;}
+    #paragrafo3 {display: none;}
+    #paragrafo4 {display: block; margin: 20px;}
+    #paragrafo4 div {display: flex; justify-content: center; height: 30px;}
+}
+@media (max-width: 400px) {
+    h1 {font-size: 1.4em;}
+}
+@media (max-width: 300px) {
+    section, hr, footer {display: none;}    
+    #aviso {display: block; text-align: center; padding: 20px; font-size: 1.7em;
+            line-height: 1.5em; background-color: white;}
+}
